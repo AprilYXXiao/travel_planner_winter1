@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of sf
+            const sf = { lat: 37.7749, lng: -122.4194};
+            //const golden_gate_brige = {lat: 37.8199, lng: 122.478};
+            //const city_hall = {lat: 37.7793, lng: 122.4192};
+
+            // The map, centered at sf
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: sf,
+            });
+            // The marker, positioned at sf
+            const marker = new google.maps.Marker({
+                position: sf,
+                map: map,
+            });
+        }
+    </script>
+</head>
+<body>
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<!--https://maps.googleapis.com/maps/api/directions/json?
+origin=golden_gate_brige&destination=city_hall
+&key=AIzaSyAtiuQLx-WDx9BHkunZ6Ltvh7EEeKzm-P0 -->
+<script
+        src="https://maps.googleapis.com/maps/api/directions/json?
+origin=golden_gate_brige&destination=city_hall
+&key=AIzaSyAtiuQLx-WDx9BHkunZ6Ltvh7EEeKzm-P0"
+        async
+></script>
+</body>
+</html>
